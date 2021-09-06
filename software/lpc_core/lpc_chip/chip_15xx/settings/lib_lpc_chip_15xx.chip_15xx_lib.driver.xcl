@@ -1,0 +1,19 @@
+"--endian=little" 
+
+"--cpu=Cortex-M3" 
+
+"--fpu=None" 
+
+"-p" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\CONFIG\debugger\NXP\LPC1549.ddf" 
+
+"--semihosting=none" 
+
+"--device=LPC1549" 
+
+"--multicore_nr_of_cores=1" 
+
+
+
+

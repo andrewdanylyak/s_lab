@@ -1,0 +1,483 @@
+###############################################################################
+#
+# IAR ELF Linker V8.50.9.278/W32 for ARM                  03/Feb/2021  14:52:12
+# Copyright 2007-2020 IAR Systems AB.
+#
+#    Output file  =  D:\firmware\Debug\Exe\shutter.out.tmp
+#    Map file     =  D:\firmware\Debug\List\shutter.map
+#    Command line =
+#        -f C:\Users\BESTLA~1\AppData\Local\Temp\EWEB08.tmp
+#        (D:\firmware\Debug\Obj\board.o
+#        D:\firmware\software\lpc_core\lpc_chip\chip_15xx\iar_output\chip_15xx_lib\Exe\chip_15xx_lib.a
+#        D:\firmware\Debug\Obj\i2c.o
+#        D:\firmware\Debug\Obj\iar_startup_lpc15xx.o
+#        D:\firmware\Debug\Obj\main.o D:\firmware\Debug\Obj\memory.o
+#        D:\firmware\Debug\Obj\one_wire.o D:\firmware\Debug\Obj\servo_control.o
+#        D:\firmware\Debug\Obj\shutter.o D:\firmware\Debug\Obj\spi.o
+#        D:\firmware\Debug\Obj\timers.o --no_out_extension -o
+#        D:\firmware\Debug\Exe\shutter.out.tmp --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
+#        D:\firmware\Debug\List\shutter.map --config
+#        D:\firmware\AAEC018.280.003.icf --semihosting --entry
+#        __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x2fb] |
+                [from 0x300 to 0x3'ffff] { ro };
+define block CSTACK with size = 16K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x200'0000 to 0x200'8fdf] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+No sections matched the following patterns:
+
+  section .crp  in "P3"
+
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xfc
+  .intvec            ro code         0x0    0xfc  iar_startup_lpc15xx.o [1]
+                                  - 0xfc    0xfc
+
+"P1", part 1 of 2:                         0x10c
+  .text              ro code        0xfc    0x1a  U32ToDbl.o [4]
+  .text              ro code       0x116    0x3a  zero_init3.o [5]
+  .text              ro code       0x150    0x2e  copy_init3.o [5]
+  .text              ro code       0x180    0x68  DblToFlt.o [4]
+  Initializer bytes  const         0x1e8    0x20  <for P2 s0>
+                                 - 0x208   0x10c
+
+"P1", part 2 of 2:                        0x1c74
+  .text              ro code       0x300   0x4e0  one_wire.o [1]
+  .text              ro code       0x7e0   0x160  timers.o [1]
+  .text              ro code       0x940   0x1a2  DblMul.o [4]
+  .text              ro code       0xae2    0x20  sct_15xx.o [2]
+  .text              ro code       0xb04    0xf0  clock_15xx.o [2]
+  .text              ro code       0xbf4    0x6c  sysctl_15xx.o [2]
+  .text              ro code       0xc60   0x4d4  i2c.o [1]
+  .text              ro code      0x1134    0x66  ABImemset.o [5]
+  .text              ro code      0x119a     0x2  iar_startup_lpc15xx.o [1]
+  .text              ro code      0x119c    0xa6  ABImemcpy.o [5]
+  .text              ro code      0x1242    0x18  i2c_common_15xx.o [2]
+  .text              ro code      0x125a     0x2  iar_startup_lpc15xx.o [1]
+  .text              ro code      0x125c    0x18  strcpy.o [5]
+  .text              ro code      0x1274    0x74  i2cs_15xx.o [2]
+  .text              ro code      0x12e8   0x13c  shutter.o [1]
+  .text              ro code      0x1424    0xb8  servo_control.o [1]
+  .text              ro code      0x14dc   0x2b0  memory.o [1]
+  .text              ro code      0x178c    0x84  sct_pwm_15xx.o [2]
+  .text              ro code      0x1810    0x9c  spi.o [1]
+  .text              ro code      0x18ac   0x160  spi_15xx.o [2]
+  .text              ro code      0x1a0c   0x190  main.o [1]
+  .text              ro code      0x1b9c   0x160  board.o [1]
+  .text              ro code      0x1cfc    0x4c  swm_15xx.o [2]
+  .text              ro code      0x1d48    0x24  iocon_15xx.o [2]
+  .text              ro code      0x1d6c    0x2a  gpio_15xx.o [2]
+  .text              ro code      0x1d96     0x2  iar_startup_lpc15xx.o [1]
+  .text              ro code      0x1d98    0x64  sysinit_15xx.o [2]
+  .text              ro code      0x1dfc    0x10  chip_15xx.o [2]
+  .rodata            const        0x1e0c    0x78  board.o [1]
+  .text              ro code      0x1e84    0x28  data_init.o [5]
+  .iar.init_table    const        0x1eac    0x24  - Linker created -
+  .text              ro code      0x1ed0    0x1e  cmain.o [5]
+  .text              ro code      0x1eee     0x4  low_level_init.o [3]
+  .text              ro code      0x1ef2     0x4  exit.o [3]
+  .text              ro code      0x1ef6     0x2  iar_startup_lpc15xx.o [1]
+  .text              ro code      0x1ef8     0xa  cexit.o [5]
+  .text              ro code      0x1f04    0x14  exit.o [6]
+  .text              ro code      0x1f18    0x1c  cstartup_M.o [5]
+  .rodata            const        0x1f34    0x10  i2c.o [1]
+  .rodata            const        0x1f44     0xc  board.o [1]
+  .rodata            const        0x1f50     0xc  board.o [1]
+  .text              ro code      0x1f5c     0x8  iar_startup_lpc15xx.o [1]
+  .rodata            const        0x1f64     0x4  board.o [1]
+  .rodata            const        0x1f68     0x4  board.o [1]
+  .rodata            const        0x1f6c     0x4  board.o [1]
+  .text              ro code      0x1f70     0x4  iar_startup_lpc15xx.o [1]
+  .rodata            const        0x1f74     0x0  zero_init3.o [5]
+  .rodata            const        0x1f74     0x0  copy_init3.o [5]
+                                - 0x1f74  0x1c74
+
+"P2", part 1 of 3:                          0x20
+  P2 s0                       0x200'0000    0x20  <Init block>
+    .data            inited   0x200'0000    0x1c  i2c.o [1]
+    .data            inited   0x200'001c     0x2  main.o [1]
+                            - 0x200'0020    0x20
+
+"P2", part 2 of 3:                         0x3c0
+  .bss               zero     0x200'0020   0x218  spi.o [1]
+  .bss               zero     0x200'0238    0x98  i2c.o [1]
+  .bss               zero     0x200'02d0    0x98  i2c.o [1]
+  .bss               zero     0x200'0368    0x30  shutter.o [1]
+  .bss               zero     0x200'0398    0x1c  spi.o [1]
+  .bss               zero     0x200'03b4    0x10  one_wire.o [1]
+  .bss               zero     0x200'03c4     0xc  i2c.o [1]
+  .bss               zero     0x200'03d0     0x4  timers.o [1]
+  .bss               zero     0x200'03d4     0x4  chip_15xx.o [2]
+  .bss               zero     0x200'03d8     0x2  timers.o [1]
+  .bss               zero     0x200'03da     0x1  i2c.o [1]
+  .bss               zero     0x200'03db     0x1  i2c.o [1]
+  .bss               zero     0x200'03dc     0x1  i2c.o [1]
+                            - 0x200'03dd   0x3bd
+
+"P2", part 3 of 3:                        0x4000
+  CSTACK                      0x200'03e0  0x4000  <Block>
+    CSTACK           uninit   0x200'03e0  0x4000  <Block tail>
+                            - 0x200'43e0  0x4000
+
+Unused ranges:
+
+        From          To      Size
+        ----          --      ----
+       0x208       0x2fb      0xf4
+      0x1f74    0x3'ffff  0x3'e08c
+  0x200'43e0  0x200'8fdf    0x4c00
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x3bd:
+          0x200'0020  0x3bd
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x20 (106% of destination):
+               0x1e8   0x20
+    1 destination range, total size 0x1e:
+          0x200'0000   0x1e
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+command line/config:
+    ------------------------------------------------
+    Total:
+
+D:\firmware\Debug\Obj: [1]
+    board.o                    352      156
+    i2c.o                    1'236       44      347
+    iar_startup_lpc15xx.o      272
+    main.o                     400        2        2
+    memory.o                   688
+    one_wire.o               1'248                16
+    servo_control.o            184
+    shutter.o                  316                48
+    spi.o                      156               564
+    timers.o                   352                 6
+    ------------------------------------------------
+    Total:                   5'204      202      983
+
+chip_15xx_lib.a: [2]
+    chip_15xx.o                 16                 4
+    clock_15xx.o               240
+    gpio_15xx.o                 42
+    i2c_common_15xx.o           24
+    i2cs_15xx.o                116
+    iocon_15xx.o                36
+    sct_15xx.o                  32
+    sct_pwm_15xx.o             132
+    spi_15xx.o                 352
+    swm_15xx.o                  76
+    sysctl_15xx.o              108
+    sysinit_15xx.o             100
+    ------------------------------------------------
+    Total:                   1'274                 4
+
+dl7M_tln.a: [3]
+    exit.o                       4
+    low_level_init.o             4
+    ------------------------------------------------
+    Total:                       8
+
+m7M_tl.a: [4]
+    DblMul.o                   418
+    DblToFlt.o                 104
+    U32ToDbl.o                  26
+    ------------------------------------------------
+    Total:                     548
+
+rt7M_tl.a: [5]
+    ABImemcpy.o                166
+    ABImemset.o                102
+    cexit.o                     10
+    cmain.o                     30
+    copy_init3.o                46
+    cstartup_M.o                28
+    data_init.o                 40
+    strcpy.o                    24
+    zero_init3.o                58
+    ------------------------------------------------
+    Total:                     504
+
+shb_l.a: [6]
+    exit.o                      20
+    ------------------------------------------------
+    Total:                      20
+
+    Gaps                         6
+    Linker created                       38   16'384
+----------------------------------------------------
+    Grand Total:             7'564      240   17'371
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base       0x1eac          --   Gb  - Linker created -
+.iar.init_table$$Limit      0x1ed0          --   Gb  - Linker created -
+?main                       0x1ed1         Code  Gb  cmain.o [5]
+CSTACK$$Base            0x200'03e0          --   Gb  - Linker created -
+CSTACK$$Limit           0x200'43e0          --   Gb  - Linker created -
+CheckI2c                    0x101f   0xcc  Code  Gb  i2c.o [1]
+CheckLimits                 0x136b   0x36  Code  Gb  shutter.o [1]
+Chip_Clock_EnablePeriphClock
+                             0xb97   0x20  Code  Gb  clock_15xx.o [2]
+Chip_Clock_GetMain_A_ClockRate
+                             0xb2b   0x1a  Code  Gb  clock_15xx.o [2]
+Chip_Clock_GetMain_B_ClockRate
+                             0xb51   0x30  Code  Gb  clock_15xx.o [2]
+Chip_Clock_GetPLLInClockRate
+                             0xb05   0x14  Code  Lc  clock_15xx.o [2]
+Chip_Clock_GetSystemClockRate
+                             0xbb7   0x1c  Code  Gb  clock_15xx.o [2]
+Chip_Clock_SetMainClockSource
+                             0xb81   0x16  Code  Gb  clock_15xx.o [2]
+Chip_Clock_SetSysTickClockDiv
+                            0x1bb3    0x6  Code  Lc  board.o [1]
+Chip_GPIO_GetPinState        0x301   0x18  Code  Lc  one_wire.o [1]
+Chip_GPIO_GetPinState       0x12e9   0x18  Code  Lc  shutter.o [1]
+Chip_GPIO_Init              0x1d6d   0x2a  Code  Gb  gpio_15xx.o [2]
+Chip_GPIO_SetPinDIRInput
+                             0x33d   0x26  Code  Lc  one_wire.o [1]
+Chip_GPIO_SetPinDIROutput
+                            0x1bdb   0x24  Code  Lc  board.o [1]
+Chip_GPIO_SetPinDIROutput
+                             0x319   0x24  Code  Lc  one_wire.o [1]
+Chip_GPIO_SetPinOutLow       0x363   0x14  Code  Lc  one_wire.o [1]
+Chip_GPIO_SetPinState       0x1bcf    0xc  Code  Lc  board.o [1]
+Chip_GPIO_SetPinState       0x1425    0xc  Code  Lc  servo_control.o [1]
+Chip_GPIO_SetPinToggle       0xcb5   0x14  Code  Lc  i2c.o [1]
+Chip_GPIO_SetPinToggle      0x1a5f   0x14  Code  Lc  main.o [1]
+Chip_I2CS_ClearStatus        0xcdb    0x8  Code  Lc  i2c.o [1]
+Chip_I2CS_Enable             0xccd    0xe  Code  Lc  i2c.o [1]
+Chip_I2CS_EnableSlaveAddr
+                             0xcf1   0x18  Code  Lc  i2c.o [1]
+Chip_I2CS_SetSlaveAddr       0xce3    0xe  Code  Lc  i2c.o [1]
+Chip_I2CS_SetSlaveQual0
+                             0xd09   0x12  Code  Lc  i2c.o [1]
+Chip_I2CS_XferHandler       0x1275   0x74  Code  Gb  i2cs_15xx.o [2]
+Chip_I2C_EnableInt           0xcc9    0x4  Code  Lc  i2c.o [1]
+Chip_I2C_Init               0x1243   0x18  Code  Gb  i2c_common_15xx.o [2]
+Chip_IOCON_SetPinMuxing
+                            0x1d49   0x24  Code  Gb  iocon_15xx.o [2]
+Chip_SCTPWM_Init            0x1451    0x8  Code  Lc  servo_control.o [1]
+Chip_SCTPWM_SetDutyCycle
+                            0x1447    0xa  Code  Lc  servo_control.o [1]
+Chip_SCTPWM_SetOutPin       0x178d   0x42  Code  Gb  sct_pwm_15xx.o [2]
+Chip_SCTPWM_SetRate         0x17cf   0x3e  Code  Gb  sct_pwm_15xx.o [2]
+Chip_SCTPWM_Start           0x1459    0xc  Code  Lc  servo_control.o [1]
+Chip_SCT_ClearControl       0x143d    0xa  Code  Lc  servo_control.o [1]
+Chip_SCT_ClearControl        0x885    0xa  Code  Lc  timers.o [1]
+Chip_SCT_ClearEventFlag
+                             0x877    0xe  Code  Lc  timers.o [1]
+Chip_SCT_Config              0x819    0x4  Code  Lc  timers.o [1]
+Chip_SCT_EnableEventInt
+                             0x869    0xe  Code  Lc  timers.o [1]
+Chip_SCT_Init                0xae3   0x20  Code  Gb  sct_15xx.o [2]
+Chip_SCT_SetEventControlRegister
+                             0x829   0x1a  Code  Lc  timers.o [1]
+Chip_SCT_SetEventStateRegister
+                             0x843   0x1a  Code  Lc  timers.o [1]
+Chip_SCT_SetMatchCount       0x81d    0xc  Code  Lc  timers.o [1]
+Chip_SCT_SetMatchReload
+                            0x1431    0xc  Code  Lc  servo_control.o [1]
+Chip_SCT_SetMatchReload
+                             0x85d    0xc  Code  Lc  timers.o [1]
+Chip_SPI_CalClkRateDivider
+                            0x18e7   0x10  Code  Gb  spi_15xx.o [2]
+Chip_SPI_DelayConfig        0x195f   0x38  Code  Gb  spi_15xx.o [2]
+Chip_SPI_Enable             0x1811    0xa  Code  Lc  spi.o [1]
+Chip_SPI_Init               0x1931   0x2e  Code  Gb  spi_15xx.o [2]
+Chip_SPI_RWFrames_Blocking
+                            0x1997   0x6e  Code  Gb  spi_15xx.o [2]
+Chip_SPI_SetConfig          0x18f7   0x3a  Code  Gb  spi_15xx.o [2]
+Chip_SWM_FixedPinEnable
+                            0x1d1f   0x22  Code  Gb  swm_15xx.o [2]
+Chip_SWM_MovablePinAssign
+                            0x1cfd   0x22  Code  Gb  swm_15xx.o [2]
+Chip_SWM_MovablePortPinAssign
+                            0x1bb9   0x16  Code  Lc  board.o [1]
+Chip_SYSCTL_AssertPeriphReset
+                             0xbf5   0x20  Code  Gb  sysctl_15xx.o [2]
+Chip_SYSCTL_DeassertPeriphReset
+                             0xc15   0x24  Code  Gb  sysctl_15xx.o [2]
+Chip_SYSCTL_PeriphReset
+                            0x1b9d   0x16  Code  Lc  board.o [1]
+Chip_SYSCTL_PeriphReset
+                             0xc9f   0x16  Code  Lc  i2c.o [1]
+Chip_SYSCTL_PowerDown        0xc39    0x8  Code  Gb  sysctl_15xx.o [2]
+Chip_SYSCTL_PowerUp          0xc41    0x8  Code  Gb  sysctl_15xx.o [2]
+Chip_SetupXtalClocking      0x1d99   0x24  Code  Gb  sysinit_15xx.o [2]
+EnableServo                 0x1489   0x14  Code  Gb  servo_control.o [1]
+I2C0_IRQHandler             0x1007   0x18  Code  Gb  i2c.o [1]
+I2cCommand              0x200'03c4    0xc  Data  Gb  i2c.o [1]
+ID                      0x200'0000   0x1c  Data  Gb  i2c.o [1]
+InitServoControl            0x1465   0x24  Code  Gb  servo_control.o [1]
+InitShutter                 0x1301   0x6a  Code  Gb  shutter.o [1]
+InitTimer1                   0x88f   0x6e  Code  Gb  timers.o [1]
+MasterSpiMessage            0x1877   0x2c  Code  Gb  spi.o [1]
+NVIC_EnableIRQ               0xc61   0x16  Code  Lc  i2c.o [1]
+NVIC_EnableIRQ               0x7e1   0x14  Code  Lc  timers.o [1]
+NVIC_SetPriority             0xc77   0x28  Code  Lc  i2c.o [1]
+NVIC_SetPriority            0x1a0d   0x24  Code  Lc  main.o [1]
+NVIC_SetPriority             0x7f5   0x24  Code  Lc  timers.o [1]
+OscRateIn                   0x1f64    0x4  Data  Gb  board.o [1]
+RTCOscRateIn                0x1f68    0x4  Data  Gb  board.o [1]
+ReadData                    0x15c7   0x7c  Code  Gb  memory.o [1]
+ReadPwm1Position            0x16f3   0x20  Code  Gb  memory.o [1]
+ReadPwm2Position            0x1713   0x20  Code  Gb  memory.o [1]
+ReadSn                      0x1753   0x20  Code  Gb  memory.o [1]
+ReadTimeout                 0x1733   0x20  Code  Gb  memory.o [1]
+Region$$Table$$Base         0x1eac          --   Gb  - Linker created -
+Region$$Table$$Limit        0x1ed0          --   Gb  - Linker created -
+SCT1_IRQHandler              0x8fd   0x1a  Code  Gb  timers.o [1]
+SPI_Send_Data               0x18ad   0x30  Code  Lc  spi_15xx.o [2]
+Sensors                 0x200'03b4   0x10  Data  Gb  one_wire.o [1]
+SetMemorySettingsPowerof2
+                            0x151b   0x34  Code  Gb  memory.o [1]
+SetPosition                 0x13a1   0x7c  Code  Gb  shutter.o [1]
+SetServoControlLevel        0x149d   0x2e  Code  Gb  servo_control.o [1]
+SetupBoard                  0x1ce9   0x14  Code  Gb  board.o [1]
+SetupClock                  0x1cbb   0x14  Code  Gb  board.o [1]
+SetupGPIO                   0x1c65   0x56  Code  Gb  board.o [1]
+SetupI2C                     0xda5   0x5e  Code  Gb  i2c.o [1]
+SetupPinMux                 0x1bff   0x66  Code  Gb  board.o [1]
+SetupSPI                    0x181b   0x5c  Code  Gb  spi.o [1]
+Shutter                 0x200'0368   0x30  Data  Gb  shutter.o [1]
+StatusRegisterRead          0x14dd   0x3e  Code  Gb  memory.o [1]
+SysTick_Config              0x1a31   0x2e  Code  Lc  main.o [1]
+SysTick_Handler             0x1a73   0xb2  Code  Gb  main.o [1]
+SysTick_Handler::counter
+                        0x200'001c    0x2  Data  Lc  main.o [1]
+SystemCoreClock         0x200'03d4    0x4  Data  Gb  chip_15xx.o [2]
+SystemCoreClockUpdate       0x1dfd    0xc  Code  Gb  chip_15xx.o [2]
+WriteData                   0x154f   0x78  Code  Gb  memory.o [1]
+WritePwm1Position           0x1643   0x2c  Code  Gb  memory.o [1]
+WritePwm2Position           0x166f   0x2c  Code  Gb  memory.o [1]
+WriteSn                     0x16c7   0x2c  Code  Gb  memory.o [1]
+WriteTimeout                0x169b   0x2c  Code  Gb  memory.o [1]
+XferSetup               0x200'0398   0x1c  Data  Lc  spi.o [1]
+__Vectors                      0x0          --   Gb  iar_startup_lpc15xx.o [1]
+__Vectors_End                 0xfc         Data  Gb  iar_startup_lpc15xx.o [1]
+__Vectors_Size {Abs}          0xfc          --   Gb  iar_startup_lpc15xx.o [1]
+__aeabi_d2f                  0x181         Code  Gb  DblToFlt.o [4]
+__aeabi_dmul                 0x941         Code  Gb  DblMul.o [4]
+__aeabi_memcpy              0x119d         Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy4             0x11bd         Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy8             0x11bd         Code  Gb  ABImemcpy.o [5]
+__aeabi_memset              0x1135         Code  Gb  ABImemset.o [5]
+__aeabi_ui2d                  0xfd         Code  Gb  U32ToDbl.o [4]
+__cmain                     0x1ed1         Code  Gb  cmain.o [5]
+__exit                      0x1f05   0x14  Code  Gb  exit.o [6]
+__iar_Memset                0x1135         Code  Gb  ABImemset.o [5]
+__iar_Memset_word           0x113d         Code  Gb  ABImemset.o [5]
+__iar_copy_init3             0x151   0x2e  Code  Gb  copy_init3.o [5]
+__iar_data_init3            0x1e85   0x28  Code  Gb  data_init.o [5]
+__iar_program_start         0x1f19         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3             0x117   0x3a  Code  Gb  zero_init3.o [5]
+__low_level_init            0x1eef    0x4  Code  Gb  low_level_init.o [3]
+__vector_table                 0x0         Data  Gb  iar_startup_lpc15xx.o [1]
+__vector_table_0x1c           0x1c         Data  Gb  iar_startup_lpc15xx.o [1]
+_call_main                  0x1edd         Code  Gb  cmain.o [5]
+_exit                       0x1ef9         Code  Gb  cexit.o [5]
+_main                       0x1ee7         Code  Gb  cmain.o [5]
+calculate_checksum           0xd1b   0x26  Code  Lc  i2c.o [1]
+check_buffer                 0xe03  0x15a  Code  Lc  i2c.o [1]
+crc8                         0x377   0x4a  Code  Gb  one_wire.o [1]
+default_PIN                 0x1f50    0xc  Data  Lc  board.o [1]
+delay_us                     0x917    0xc  Code  Gb  timers.o [1]
+exit                        0x1ef3    0x4  Code  Gb  exit.o [3]
+fixedFunc                   0x1f6c    0x4  Data  Lc  board.o [1]
+get_temperature              0x5bd  0x216  Code  Gb  one_wire.o [1]
+i2c_buffer              0x200'0238   0x98  Data  Lc  i2c.o [1]
+i2c_input_ptr           0x200'03da    0x1  Data  Lc  i2c.o [1]
+i2c_output_ptr          0x200'03db    0x1  Data  Lc  i2c.o [1]
+i2c_state               0x200'03dc    0x1  Data  Lc  i2c.o [1]
+i2csCallBacks               0x1f34   0x10  Data  Lc  i2c.o [1]
+ioconSetup                  0x1e0c   0x78  Data  Lc  board.o [1]
+m_rx_buffer             0x200'0020  0x218  Data  Gb  spi.o [1]
+main                        0x1b25   0x4e  Code  Gb  main.o [1]
+one_wire_recive_bit          0x4a7   0x72  Code  Gb  one_wire.o [1]
+one_wire_recive_byte         0x54d   0x32  Code  Gb  one_wire.o [1]
+one_wire_reset               0x3c1   0x74  Code  Gb  one_wire.o [1]
+one_wire_transmit_bit        0x435   0x72  Code  Gb  one_wire.o [1]
+one_wire_transmit_byte       0x519   0x34  Code  Gb  one_wire.o [1]
+prepare_output_buffer        0xd41   0x64  Code  Lc  i2c.o [1]
+processSlaveTransferDone
+                             0xfd9   0x2e  Code  Lc  i2c.o [1]
+processSlaveTransferRecv
+                             0xfbd   0x1c  Code  Lc  i2c.o [1]
+processSlaveTransferSend
+                             0xf8d   0x30  Code  Lc  i2c.o [1]
+processSlaveTransferStart
+                             0xf5d   0x30  Code  Lc  i2c.o [1]
+strcpy                      0x125d         Code  Gb  strcpy.o [5]
+swmSetup                    0x1f44    0xc  Data  Lc  board.o [1]
+t_value                 0x200'03d0    0x4  Data  Lc  timers.o [1]
+temp_buffer             0x200'02d0   0x98  Data  Lc  i2c.o [1]
+temperature_timeuot     0x200'03d8    0x2  Data  Gb  timers.o [1]
+wait_for_conversion          0x57f   0x3e  Code  Gb  one_wire.o [1]
+
+
+[1] = D:\firmware\Debug\Obj
+[2] = chip_15xx_lib.a
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+   7'564 bytes of readonly  code memory
+     240 bytes of readonly  data memory
+  17'371 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

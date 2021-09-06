@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspace>
+    <project>
+        <path>$WS_DIR$\software\lpc_core\lpc_chip\chip_15xx\lib_lpc_chip_15xx.ewp</path>
+    </project>
+    <project>
+        <path>$WS_DIR$\shutter.ewp</path>
+    </project>
+    <batchBuild />
+</workspace>

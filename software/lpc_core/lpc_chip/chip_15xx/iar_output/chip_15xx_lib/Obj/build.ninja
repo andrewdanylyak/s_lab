@@ -1,0 +1,61 @@
+#Generating source browse information for project lib_lpc_chip_15xx
+
+
+#Abbreviations
+cc = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.4\common\bin\SourceIndexer.exe
+ll = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.4\common\bin\PbdLink.exe
+bd = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.4\common\bin\makeBrowseData.exe
+
+
+
+#Rules
+rule index
+  depfile = $out.dep
+  command = $cc -out=$out -f $in
+rule link
+  command = $ll -M $out $in
+rule browsedata
+  command = $bd $in -output  $out
+
+
+
+#Build steps
+build acmp_15xx.pbi : index acmp_15xx.xcl
+build adc_15xx.pbi : index adc_15xx.xcl
+build chip_15xx.pbi : index chip_15xx.xcl
+build clock_15xx.pbi : index clock_15xx.xcl
+build crc_15xx.pbi : index crc_15xx.xcl
+build dac_15xx.pbi : index dac_15xx.xcl
+build dma_15xx.pbi : index dma_15xx.xcl
+build eeprom.pbi : index eeprom.xcl
+build gpio_15xx.pbi : index gpio_15xx.xcl
+build i2c_common_15xx.pbi : index i2c_common_15xx.xcl
+build i2cm_15xx.pbi : index i2cm_15xx.xcl
+build i2cs_15xx.pbi : index i2cs_15xx.xcl
+build iap.pbi : index iap.xcl
+build iocon_15xx.pbi : index iocon_15xx.xcl
+build pinint_15xx.pbi : index pinint_15xx.xcl
+build pmu_15xx.pbi : index pmu_15xx.xcl
+build ring_buffer.pbi : index ring_buffer.xcl
+build ritimer_15xx.pbi : index ritimer_15xx.xcl
+build rtc_15xx.pbi : index rtc_15xx.xcl
+build sct_15xx.pbi : index sct_15xx.xcl
+build sct_pwm_15xx.pbi : index sct_pwm_15xx.xcl
+build sctipu_15xx.pbi : index sctipu_15xx.xcl
+build spi_15xx.pbi : index spi_15xx.xcl
+build stopwatch_15xx.pbi : index stopwatch_15xx.xcl
+build swm_15xx.pbi : index swm_15xx.xcl
+build sysctl_15xx.pbi : index sysctl_15xx.xcl
+build sysinit_15xx.pbi : index sysinit_15xx.xcl
+build uart_15xx.pbi : index uart_15xx.xcl
+build wwdt_15xx.pbi : index wwdt_15xx.xcl
+build lib_lpc_chip_15xx_part0.pbi : link acmp_15xx.pbi adc_15xx.pbi chip_15xx.pbi clock_15xx.pbi crc_15xx.pbi
+build lib_lpc_chip_15xx_part1.pbi : link dac_15xx.pbi dma_15xx.pbi eeprom.pbi gpio_15xx.pbi i2c_common_15xx.pbi
+build lib_lpc_chip_15xx_part2.pbi : link i2cm_15xx.pbi i2cs_15xx.pbi iap.pbi iocon_15xx.pbi pinint_15xx.pbi
+build lib_lpc_chip_15xx_part3.pbi : link pmu_15xx.pbi ring_buffer.pbi ritimer_15xx.pbi rtc_15xx.pbi sct_15xx.pbi
+build lib_lpc_chip_15xx_part4.pbi : link sct_pwm_15xx.pbi sctipu_15xx.pbi spi_15xx.pbi stopwatch_15xx.pbi swm_15xx.pbi
+build lib_lpc_chip_15xx_part5.pbi : link sysctl_15xx.pbi sysinit_15xx.pbi uart_15xx.pbi wwdt_15xx.pbi
+build lib_lpc_chip_15xx.pbd : link lib_lpc_chip_15xx_part0.pbi lib_lpc_chip_15xx_part1.pbi lib_lpc_chip_15xx_part2.pbi lib_lpc_chip_15xx_part3.pbi lib_lpc_chip_15xx_part4.pbi lib_lpc_chip_15xx_part5.pbi
+build lib_lpc_chip_15xx.pbw : browsedata lib_lpc_chip_15xx.pbd
+
+

@@ -1,0 +1,47 @@
+#ifndef _i2c_h
+#define _i2c_h
+
+enum SHUTTER_COMMANDS{
+  SHUTTER_SET_COMMAND,
+  SHUTTER_GET_COMMAND,
+};
+
+enum SHUTTER_SUBCOMMANDS{
+  SC_SET_POSITION,
+  SC_SET_WORK_MODE,
+  SC_POSITION_BY_PWM,
+  SC_WRITE_POS1_PWM_DATA,
+  SC_WRITE_POS2_PWM_DATA,
+  SC_WRITE_TIMEOUT_DATA,
+  SC_WRITE_SN_DATA,
+  SC_WRITE_DATA,
+  SC_STATE_UPDATE,
+  SC_GET_ID,
+  SC_GET_STATUS,
+  SC_READ_POS1_PWM_DATA,
+  SC_READ_POS2_PWM_DATA,
+  SC_READ_TIMEOUT_DATA,
+  SC_READ_SN_DATA,
+  SC_READ_DATA,
+  SC_READ_TEMPERATURE,
+};
+
+enum I2C_STATUS_ERRORS{
+	STATUS_OK,
+	STATUS_CRC_ERR = (1 << 1),
+	STATUS_WRONG_COMMAND = (1 << 2),
+	STATUS_WRONG_DATA = (1 << 3),
+	STATUS_WRONG_LENGTH = (1 << 4)
+};
+
+typedef struct{
+  bool hasNewCommand;
+  uint8_t buffer[10];
+}tTcommandStructure;
+
+extern tTcommandStructure I2cCommand;
+extern void CheckI2c();
+
+extern void SetupI2C();
+
+#endif
